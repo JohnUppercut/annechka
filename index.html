@@ -184,7 +184,9 @@ button{
 </div>
 
 </div>
-
+    
+<audio id="song" src="music/song.mp3"></audio>
+    
 <script>
 function show(){
   document.getElementById("secret").style.display="block";
@@ -193,6 +195,12 @@ function show(){
 function yes(){
   document.getElementById("answer").style.display="block";
 
+  // запускаем музыку
+  const audio = document.getElementById("song");
+  audio.currentTime = 0;
+  audio.play();
+
+  // сердечки
   for(let i=0;i<25;i++){
     let h=document.createElement("div");
     h.className="heart";
