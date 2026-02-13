@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Для тебя ❤️</title>
+<style>
+body {
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: Arial, sans-serif;
+    color:white;
+    text-align:center;
+}
+.card {
+    background: rgba(255,255,255,0.15);
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter: blur(10px);
+    max-width:500px;
+}
+button {
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    color:#ff4d6d;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:20px;
+}
+#secret { display:none; margin-top:20px; font-size:20px; }
+</style>
+</head>
+
+<body>
+<div class="card">
+    <h1>С 14 февраля ❤️</h1>
+    <p>У меня нет идеального подарка</p>
+    <p>Но есть кое-что важнее</p>
+
+    <button onclick="show()">нажми</button>
+
+    <div id="secret">
+        <p>мне спокойно рядом с тобой</p>
+        <p>и я выбираю тебя</p>
+        <p>каждый день</p>
+    </div>
+</div>
+
+<script>
+function show(){
+    document.getElementById("secret").style.display="block";
+}
+</script>
+</body>
+</html>
