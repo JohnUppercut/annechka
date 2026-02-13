@@ -2,59 +2,150 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Для тебя ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Аня ❤️</title>
+
 <style>
-body {
+body{
     margin:0;
-    height:100vh;
+    font-family:system-ui, Arial;
+    background:linear-gradient(135deg,#0f0f16,#1b1220);
+    color:white;
     display:flex;
     justify-content:center;
-    align-items:center;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    font-family: Arial, sans-serif;
-    color:white;
-    text-align:center;
 }
-.card {
-    background: rgba(255,255,255,0.15);
-    padding:40px;
+.wrap{max-width:900px;padding:30px 16px}
+
+.hero{
+    background:rgba(255,255,255,0.08);
+    padding:25px;
     border-radius:20px;
-    backdrop-filter: blur(10px);
-    max-width:500px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.4);
 }
-button {
-    padding:12px 25px;
-    border:none;
-    border-radius:10px;
+
+h1{margin:0;font-size:34px}
+.sub{opacity:.75;margin-top:10px}
+
+.text{
+    margin-top:20px;
+    line-height:1.7;
+    font-size:18px;
+}
+
+.section{margin-top:35px}
+
+.polaroids{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:16px;
+}
+
+.p{
     background:white;
-    color:#ff4d6d;
+    color:black;
+    border-radius:16px;
+    padding:10px 10px 14px;
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+    transform:rotate(var(--r));
+    transition:.2s;
+}
+.p:hover{transform:rotate(0deg) scale(1.02)}
+
+.p img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+.cap{
+    margin-top:10px;
+    font-weight:bold;
+}
+.cap small{display:block;opacity:.7;font-weight:600}
+
+.final{
+    margin-top:40px;
+    text-align:center;
+    font-size:22px;
+    line-height:1.6;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 22px;
+    border:none;
+    border-radius:12px;
+    background:white;
+    color:#ff4d88;
     font-weight:bold;
     cursor:pointer;
-    margin-top:20px;
 }
-#secret { display:none; margin-top:20px; font-size:20px; }
+
+#secret{display:none;margin-top:20px;font-size:20px}
 </style>
 </head>
 
 <body>
-<div class="card">
-    <h1>С 14 февраля ❤️</h1>
-    <p>У меня нет идеального подарка</p>
-    <p>Но есть кое-что важнее</p>
+<div class="wrap">
 
-    <button onclick="show()">нажми</button>
+<div class="hero">
+<h1>Аня ❤️</h1>
+<p class="sub">У меня нет подарка “за деньги”. Зато есть подарок “по-настоящему”.</p>
 
-    <div id="secret">
-        <p>мне спокойно рядом с тобой</p>
-        <p>и я выбираю тебя</p>
-        <p>каждый день</p>
-    </div>
+<div class="text">
+Я люблю тебя, когда ты грустишь — и когда тебе тяжело.<br>
+Я люблю тебя, когда ты сияешь — и наряжаешься так, что мир становится красивее.<br>
+Я люблю тебя, когда ты дурачишься — и строишь рожицы, как будто тебе снова 17.<br>
+И я люблю тебя, когда мы вместе.
+</div>
+</div>
+
+<div class="section">
+<div class="polaroids">
+
+<div class="p" style="--r:-2deg">
+<img src="photos/photo_1.jpg">
+<div class="cap">Когда тебе грустно<small>Я рядом.</small></div>
+</div>
+
+<div class="p" style="--r:2deg">
+<img src="photos/photo_2.jpg">
+<div class="cap">Когда ты красивая<small>Я каждый раз офигеваю.</small></div>
+</div>
+
+<div class="p" style="--r:1deg">
+<img src="photos/photo_3.jpg">
+<div class="cap">Когда ты дурачишься<small>Мне повезло.</small></div>
+</div>
+
+<div class="p" style="--r:-1deg">
+<img src="photos/photo_4.jpg">
+<div class="cap">Когда мы вместе<small>Люблю тебя любой.</small></div>
+</div>
+
+</div>
+</div>
+
+<div class="final">
+Короче:<br>
+<strong>люблю тебя любой ❤️</strong>
+
+<br>
+<button onclick="show()">нажми</button>
+<div id="secret">
+и буду выбирать тебя<br>каждый день
+</div>
+</div>
+
 </div>
 
 <script>
 function show(){
-    document.getElementById("secret").style.display="block";
+document.getElementById("secret").style.display="block";
 }
 </script>
+
 </body>
 </html>
