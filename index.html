@@ -83,6 +83,50 @@ button{
     cursor:pointer;
 }
 
+/* Valentine block */
+.valentine{
+    margin-top:60px;
+    text-align:center;
+    padding:30px 10px;
+}
+.valentine h2{
+    font-size:28px;
+    margin:0 0 18px;
+}
+.yes{
+    font-size:20px;
+    padding:14px 28px;
+    border-radius:16px;
+    background:#ff4d88;
+    color:white;
+    border:none;
+    cursor:pointer;
+    transition:.2s;
+    margin-top:0;
+}
+.yes:hover{
+    transform:scale(1.08);
+}
+#answer{
+    margin-top:18px;
+    font-size:22px;
+    display:none;
+    opacity:.95;
+}
+
+/* Hearts animation */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:20px;
+    animation:floatUp 4s linear forwards;
+    pointer-events:none;
+}
+@keyframes floatUp{
+    from{transform:translateY(0);opacity:1}
+    to{transform:translateY(-110vh);opacity:0}
+}
+
 #secret{display:none;margin-top:20px;font-size:20px}
 </style>
 </head>
@@ -91,52 +135,73 @@ button{
 <div class="wrap">
 
 <div class="hero">
-<h1>Аня ❤️</h1>
-<p class="sub">Как будут все деньги мира отдам их тебе, а пока что сайт</p>
+  <h1>Аня ❤️</h1>
+  <p class="sub">Как будут все деньги мира — отдам их тебе, а пока что сайт</p>
 </div>
 
 <div class="section">
-<div class="polaroids">
+  <div class="polaroids">
 
-<div class="p" style="--r:-2deg">
-<img src="photos/photo_1.jpeg">
-<div class="cap">Когда тебе грустно<small>Я рядом</small></div>
-</div>
+    <div class="p" style="--r:-2deg">
+      <img src="photos/photo_1.jpeg" alt="">
+      <div class="cap">Когда тебе грустно<small>Я рядом</small></div>
+    </div>
 
-<div class="p" style="--r:2deg">
-<img src="photos/photo_2.jpeg">
-<div class="cap">Когда ты красивая<small>Я каждый раз любуюсь тобой</small></div>
-</div>
+    <div class="p" style="--r:2deg">
+      <img src="photos/photo_2.jpeg" alt="">
+      <div class="cap">Когда ты нарядная<small>Я каждый раз любуюсь тобой</small></div>
+    </div>
 
-<div class="p" style="--r:1deg">
-<img src="photos/photo_3.jpeg">
-<div class="cap">Когда ты дурачишься<small>Я смеюсь вместе с тобой</small></div>
-</div>
+    <div class="p" style="--r:1deg">
+      <img src="photos/photo_3.jpeg" alt="">
+      <div class="cap">Когда ты дурачишься<small>Я смеюсь вместе с тобой</small></div>
+    </div>
 
-<div class="p" style="--r:-1deg">
-<img src="photos/photo_4.jpeg">
-<div class="cap">Когда мы вместе<small>Я понимаю как мне повезло</small></div>
-</div>
+    <div class="p" style="--r:-1deg">
+      <img src="photos/photo_4.jpeg" alt="">
+      <div class="cap">Когда мы вместе<small>Я понимаю как мне повезло</small></div>
+    </div>
 
-</div>
+  </div>
 </div>
 
 <div class="final">
-Короче:<br>
-<strong>люблю тебя любой ❤️</strong>
+  Короче:<br>
+  <strong>люблю тебя любой ❤️</strong>
 
-<br>
-<button onclick="show()">нажми</button>
-<div id="secret">
-и буду выбирать тебя<br>каждый день
+  <br>
+  <button onclick="show()">нажми</button>
+  <div id="secret">
+    и буду выбирать тебя<br>каждый день
+  </div>
 </div>
+
+<!-- New block -->
+<div class="valentine">
+  <h2>Будешь моей валентинкой?</h2>
+  <button class="yes" onclick="yes()">Да ❤️</button>
+  <div id="answer">Я знал 😌</div>
 </div>
 
 </div>
 
 <script>
 function show(){
-document.getElementById("secret").style.display="block";
+  document.getElementById("secret").style.display="block";
+}
+
+function yes(){
+  document.getElementById("answer").style.display="block";
+
+  for(let i=0;i<25;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerText=["❤️","💖","💕","💗"][Math.floor(Math.random()*4)];
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(3+Math.random()*2)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+  }
 }
 </script>
 
